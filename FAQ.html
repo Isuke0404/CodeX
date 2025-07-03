@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corex Editor - FAQ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #333;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* Logo */
+    .navbar .logo {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      width: 90px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    /* Navigation links */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 6px 10px;
+      transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #555;
+      border-radius: 4px;
+    }
+
+    /* Search bar */
+    .search-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box input[type="text"] {
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+    }
+
+    .search-box button {
+      padding: 6px 12px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .search-box button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Content section */
+    .content {
+      padding: 40px 20px;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content h1 {
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      line-height: 1.3;
+      color: #333;
+      position: relative;
+      display: inline-block;
+    }
+
+    .content h1:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #007bff;
+      border-radius: 2px;
+    }
+
+    .pc {
+      max-width: 90%;
+      height: auto;
+      display: block;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    /* FAQ section */
+    .faq-section {
+      background-color: white;
+      padding: 50px 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .faq-header h2 {
+      font-size: 2.3rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .faq-header p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .faq-question {
+      width: 100%;
+      background-color: #007bff;
+      color: #fff;
+      padding: 18px 25px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+
+    .faq-question:hover {
+      background-color: #0056b3;
+    }
+
+    .faq-question i {
+      transition: transform 0.3s;
+      font-size: 1.1rem;
+    }
+
+    .faq-answer {
+      background-color: #f9f9f9;
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .faq-answer p {
+      padding: 25px 0;
+      color: #555;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    /* Features section */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 60px 0;
+      padding: 0 20px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      width: 250px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-card h3 {
+      color: #007bff;
+      margin: 15px 0;
+      font-size: 1.3rem;
+    }
+
+    .feature-card p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      color: #007bff;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .img1 {
+      width: 150px;
+      height: auto;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 20px;
+      }
+      
+      .nav-links {
+        margin: 20px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .search-box {
+        width: 100%;
+        max-width: 400px;
+      }
+      
+      .search-box input[type="text"] {
+        width: 100%;
+      }
+      
+      .content {
+        padding: 30px 15px;
+      }
+      
+      .content h1 {
+        font-size: 2.2rem;
+      }
+      
+      .faq-header h2 {
+        font-size: 2rem;
+      }
+      
+      .faq-question {
+        font-size: 1.05rem;
+        padding: 15px 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+      
+      .content {
+        padding: 20px 10px;
+      }
+      
+      .content h1 {
+        font-size: 2rem;
+      }
+      
+      .faq-header h2 {
+        font-size: 1.7rem;
+      }
+      
+      .feature-card {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+  <img src="Corex.png" alt="logo" class="logo img1">
+    <div class="nav-links">
+      <a href="#"><i class="fas fa-home"></i> Home</a>
+      <a href="#faq" class="active"><i class="fas fa-question-circle"></i> FAQ</a>
+      <a href="#"><i class="fas fa-users"></i> Social</a>
+      <a href="#"><i class="fas fa-envelope"></i> Support</a>
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search docs...">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+
+  <!-- Content section -->
+  <div id="home" class="content">
+    <h1>Frequently Asked Questions</h1>
+    
+    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="FAQ support illustration" class="pc">
+  </div>
+  
+  <!-- FAQ section -->
+  <section id="faq" class="faq-section">
+    <div class="faq-header">
+      <h2>Common Questions About Corex Editor</h2>
+      <p>Find answers to the most frequently asked questions about our collaborative code editor</p>
+    </div>
+    
+    <div class="faq-container">
+      <div class="faq-item active">
+        <button class="faq-question">
+          What platforms does Corex Editor support?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Corex Editor runs on Windows, macOS, Linux, and ChromeOS. Our web version works on any modern browser. All platforms support the same feature set including real-time collaboration, extensions, and debugging tools.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          How many collaborators can work together in real time?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Corex Editor supports up to 25 simultaneous collaborators on a single project. Our infrastructure scales automatically, ensuring smooth performance even with large teams. Each collaborator gets their own color-coded cursor for easy identification.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          Is my code secure with Corex Editor?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. All sessions are end‑to‑end encrypted with AES-256 encryption. We never store your code on our servers unless you explicitly choose to save it. You maintain full ownership of all your code and intellectual property.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I extend Corex Editor with plugins?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! Corex Editor has a rich ecosystem of extensions. Browse our marketplace for hundreds of plugins covering languages, themes, debuggers, and productivity tools. You can also create your own extensions using our well‑documented API.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          Does Corex Editor work offline?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, Corex Editor has full offline support. You can continue coding without an internet connection, and your changes will automatically sync when you reconnect. Collaboration features require an active internet connection.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          What programming languages are supported?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Corex Editor supports over 50 programming languages including JavaScript, Python, Java, C++, HTML/CSS, PHP, Ruby, Swift, and Go. Syntax highlighting, code completion, and linting are available for all supported languages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features section -->
+  <div class="features">
+    <div class="feature-card">
+      <div class="icon"><i class="fas fa-users"></i></div>
+      <h3>Real-time Collaboration</h3>
+      <p>Code together with your team in real-time from anywhere in the world with instant updates.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon"><i class="fas fa-comments"></i></div>
+      <h3>Built-in Chat</h3>
+      <p>Communicate with your team without leaving the editor. Share code snippets instantly.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon"><i class="fas fa-bolt"></i></div>
+      <h3>Fast & Lightweight</h3>
+      <p>Experience blazing fast performance even with large projects and multiple files open.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon"><i class="fas fa-plug"></i></div>
+      <h3>Plugin Ecosystem</h3>
+      <p>Extend functionality with hundreds of community plugins and themes.</p>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Corex Editor. All rights reserved.</p>
+    <p>Made with ❤️ for developers</p>
+  </footer>
+
+  <!-- FAQ accordion logic -->
+  <script>
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const button = item.querySelector('.faq-question');
+      
+      button.addEventListener('click', () => {
+        // Close all other items
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
