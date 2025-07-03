@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Website</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+     font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #333;
+      padding: 10px 20px;
+    }
+
+    /* Logo */
+    .navbar .logo {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      width: 60px;
+    }
+
+    /* Navigation links */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 6px 10px;
+      transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #555;
+      border-radius: 4px;
+    }
+
+    /* Search bar */
+    .search-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box input[type="text"] {
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+    }
+
+    .search-box button {
+      padding: 6px 12px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .search-box button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Content section (optional) */
+    .content {
+      padding: 40px;
+      text-align: center;
+      font-size: 25px;
+    }
+    .pc{
+
+
+        margin: 20px;
+    }
+    button {
+
+        padding: 40px;
+        border: none;
+        background-color: #333;
+        border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <img src="Corex.png" alt="logo" class="logo">
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">FAQ</a>
+      <a href="#services">Social</a>
+      <a href="#contact">Download</a>
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <button type="submit">Go</button>
+    </div>
+  </div>
+
+  <!-- Content (optional placeholder) -->
+  <div class="content">
+    <h1>The all in one 
+        <br>collberation code editor </h1>
+
+    <img src="pc1.jfif" alt="placeholder" class="pc">
+    <button>Download</button>
+     
+</div>
+
+</body>
+</html>
